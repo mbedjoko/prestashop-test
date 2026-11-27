@@ -18,6 +18,19 @@ PrestaShop redirige automatiquement toute requête vers son domaine configuré (
 - Si le job tourne dans un conteneur, le lancer en mode réseau **`host`** (comme on l'a fait pour ZAP : `docker run --network host ...`).
 - Ou exécuter les scripts Robot Framework directement depuis l'agent Jenkins sur la machine hôte plutôt que dans un conteneur isolé.
 
+## 🪟 Si tu es sous Windows (Docker Desktop)
+
+Deux points de vigilance repérés par le Test Architect (testé sous Linux) :
+
+1. **Le montage du socket Docker** dans `docker-compose.yml` (`/var/run/docker.sock`) peut ne pas fonctionner correctement selon ton backend Docker Desktop (WSL2 vs Hyper-V). Si le conteneur `jenkins` refuse de démarrer à cause de cette ligne, retire-la temporairement du fichier — ce n'est utile que si un job a besoin de lancer lui-même des conteneurs, pas pour l'usage de base.
+2. **Le mode réseau `host`** utilisé plus haut (piège `PS_DOMAIN`) est une particularité Linux et ne se comporte pas pareil sous Windows/Mac. **Solution recommandée pour toi : n'exécute pas Robot Framework dans un conteneur.** Installe-le directement sous Windows :
+   ```powershell
+   python -m venv venv
+   venv\Scripts\activate
+   pip install robotframework robotframework-seleniumlibrary
+   ```
+   En ciblant `http://localhost:8080` depuis un script lancé nativement sous Windows, tu n'as aucun piège réseau à gérer — Docker Desktop route correctement `localhost` vers les ports publiés, contrairement à l'accès par nom de conteneur.
+
 ## Ce qu'il te reste à faire (pas encore fait par le Test Architect)
 1. **Installer Robot Framework + SeleniumLibrary** (ex. dans un environnement virtuel Python, ou dans l'agent Jenkins) :
    ```bash
