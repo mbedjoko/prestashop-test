@@ -2,19 +2,19 @@
 
 ## Règle n°1 — Jamais de push direct sur `main`
 La branche `main` est protégée : toute modification doit passer par une Pull Request (PR),
-relue et fusionnée par le Test Manager (ou le Test Architect en son absence).
+relue et approuvée avant fusion.
 
-## Règle n°2 — Une branche par rôle
-Travaille uniquement sur la branche correspondant à ton rôle :
+## Règle n°2 — Une branche par personne / par rôle
+Travaille uniquement sur ta branche :
 
-| Branche              | Rôle                  | Livrable attendu                          |
-|----------------------|-----------------------|--------------------------------------------|
-| `test-manager`       | Test Manager           | Parties 1, 3, 10 + assemblage final        |
-| `test-architect`     | Test Architect         | Parties 2 et 4 (déjà fournies sur `main`)  |
-| `test-analyst`       | Test Analyst            | Partie 5 + grille des cas de test          |
-| `automation-engineer`| Automation Engineer    | Partie 7 + scripts Robot Framework/Jenkins |
-| `qa-securite`        | QA / testeur sécurité  | Partie 6 (voir semgrep-errors-only.json et zap-report.html) |
-| `defect-manager`     | Defect Manager         | Parties 8 et 9                             |
+| Branche              | Rôle                    | Nom                                  |
+|-----------------------|-------------------------|----------------------------------------|
+| `test-manager`        | Test Manager            | MOUSSENI TAGUE Jessica Estelle          |
+| `test-architect`      | Test Architect          | MEKEME BEDJOKO Michel                   |
+| `test-analyst`        | Test Analyst            | MATCHINDA TAKU Alice Beldouce           |
+| `qa-securite`         | QA / testeur sécurité   | MAFOUPI Cerena Shirel                   |
+| `automation-engineer` | Automation Engineer     | MBOUGUEM FOTSO Henri Michel             |
+| `defect-manager`      | Defect Manager          | MAGNI NGOSSI Elvira                     |
 
 ## Règle n°3 — Workflow
 1. `git checkout <ta-branche>`
