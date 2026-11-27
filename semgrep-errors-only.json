@@ -1,0 +1,2173 @@
+[
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/classes/Cookie.php",
+    "start": {
+      "line": 322,
+      "col": 56,
+      "offset": 10240
+    },
+    "end": {
+      "line": 322,
+      "col": 96,
+      "offset": 10280
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/classes/ImageManager.php",
+    "start": {
+      "line": 426,
+      "col": 13,
+      "offset": 16111
+    },
+    "end": {
+      "line": 426,
+      "col": 88,
+      "offset": 16186
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/classes/ImageManager.php",
+    "start": {
+      "line": 428,
+      "col": 17,
+      "offset": 16233
+    },
+    "end": {
+      "line": 428,
+      "col": 84,
+      "offset": 16300
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/classes/ImageManager.php",
+    "start": {
+      "line": 431,
+      "col": 17,
+      "offset": 16361
+    },
+    "end": {
+      "line": 431,
+      "col": 81,
+      "offset": 16425
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.eval-use.eval-use",
+    "path": "/workspace/src/html/classes/PrestaShopAutoload.php",
+    "start": {
+      "line": 133,
+      "col": 13,
+      "offset": 3689
+    },
+    "end": {
+      "line": 133,
+      "col": 106,
+      "offset": 3782
+    },
+    "extra": {
+      "message": "Evaluating non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/function.eval",
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/NoEvalsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Command Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.eval-use.eval-use",
+        "shortlink": "https://sg.run/J9AP"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.eval-use.eval-use",
+    "path": "/workspace/src/html/classes/PrestaShopAutoload.php",
+    "start": {
+      "line": 150,
+      "col": 21,
+      "offset": 4814
+    },
+    "end": {
+      "line": 150,
+      "col": 127,
+      "offset": 4920
+    },
+    "extra": {
+      "message": "Evaluating non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/function.eval",
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/NoEvalsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Command Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.eval-use.eval-use",
+        "shortlink": "https://sg.run/J9AP"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+    "path": "/workspace/src/html/classes/Product.php",
+    "start": {
+      "line": 6422,
+      "col": 57,
+      "offset": 247778
+    },
+    "end": {
+      "line": 6424,
+      "col": 83,
+      "offset": 248104
+    },
+    "extra": {
+      "message": "User data flows into this manually-constructed SQL string. User data can be safely inserted into SQL strings using prepared statements or an object-relational mapper (ORM). Manually-constructed SQL strings is a possible indicator of SQL injection, which could let an attacker steal or manipulate data from the database. Instead, use prepared statements (`$mysqli->prepare(\"INSERT INTO test(id, label) VALUES (?, ?)\");`) or a safe library.",
+      "metadata": {
+        "cwe": [
+          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "references": [
+          "https://owasp.org/www-community/attacks/SQL_Injection"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "vuln"
+        ],
+        "likelihood": "HIGH",
+        "impact": "MEDIUM",
+        "confidence": "MEDIUM",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "SQL Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+        "shortlink": "https://sg.run/lZYG"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+    "path": "/workspace/src/html/classes/Product.php",
+    "start": {
+      "line": 6428,
+      "col": 55,
+      "offset": 248253
+    },
+    "end": {
+      "line": 6431,
+      "col": 79,
+      "offset": 248557
+    },
+    "extra": {
+      "message": "User data flows into this manually-constructed SQL string. User data can be safely inserted into SQL strings using prepared statements or an object-relational mapper (ORM). Manually-constructed SQL strings is a possible indicator of SQL injection, which could let an attacker steal or manipulate data from the database. Instead, use prepared statements (`$mysqli->prepare(\"INSERT INTO test(id, label) VALUES (?, ?)\");`) or a safe library.",
+      "metadata": {
+        "cwe": [
+          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "references": [
+          "https://owasp.org/www-community/attacks/SQL_Injection"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "vuln"
+        ],
+        "likelihood": "HIGH",
+        "impact": "MEDIUM",
+        "confidence": "MEDIUM",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "SQL Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+        "shortlink": "https://sg.run/lZYG"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+    "path": "/workspace/src/html/classes/Product.php",
+    "start": {
+      "line": 6439,
+      "col": 21,
+      "offset": 248886
+    },
+    "end": {
+      "line": 6441,
+      "col": 71,
+      "offset": 249069
+    },
+    "extra": {
+      "message": "User data flows into this manually-constructed SQL string. User data can be safely inserted into SQL strings using prepared statements or an object-relational mapper (ORM). Manually-constructed SQL strings is a possible indicator of SQL injection, which could let an attacker steal or manipulate data from the database. Instead, use prepared statements (`$mysqli->prepare(\"INSERT INTO test(id, label) VALUES (?, ?)\");`) or a safe library.",
+      "metadata": {
+        "cwe": [
+          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "references": [
+          "https://owasp.org/www-community/attacks/SQL_Injection"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "vuln"
+        ],
+        "likelihood": "HIGH",
+        "impact": "MEDIUM",
+        "confidence": "MEDIUM",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "SQL Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+        "shortlink": "https://sg.run/lZYG"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/classes/Smarty/SmartyCustom.php",
+    "start": {
+      "line": 219,
+      "col": 38,
+      "offset": 8655
+    },
+    "end": {
+      "line": 219,
+      "col": 63,
+      "offset": 8680
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/classes/Upgrader.php",
+    "start": {
+      "line": 322,
+      "col": 13,
+      "offset": 11520
+    },
+    "end": {
+      "line": 322,
+      "col": 44,
+      "offset": 11551
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/classes/controller/FrontController.php",
+    "start": {
+      "line": 1308,
+      "col": 13,
+      "offset": 48130
+    },
+    "end": {
+      "line": 1308,
+      "col": 92,
+      "offset": 48209
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.eval-use.eval-use",
+    "path": "/workspace/src/html/classes/module/Module.php",
+    "start": {
+      "line": 2862,
+      "col": 13,
+      "offset": 106477
+    },
+    "end": {
+      "line": 2874,
+      "col": 15,
+      "offset": 106969
+    },
+    "extra": {
+      "message": "Evaluating non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/function.eval",
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/NoEvalsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Command Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.eval-use.eval-use",
+        "shortlink": "https://sg.run/J9AP"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.eval-use.eval-use",
+    "path": "/workspace/src/html/classes/module/Module.php",
+    "start": {
+      "line": 2879,
+      "col": 13,
+      "offset": 107185
+    },
+    "end": {
+      "line": 2891,
+      "col": 15,
+      "offset": 107670
+    },
+    "extra": {
+      "message": "Evaluating non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/function.eval",
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/NoEvalsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Command Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.eval-use.eval-use",
+        "shortlink": "https://sg.run/J9AP"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.eval-use.eval-use",
+    "path": "/workspace/src/html/classes/module/Module.php",
+    "start": {
+      "line": 2960,
+      "col": 17,
+      "offset": 112759
+    },
+    "end": {
+      "line": 2972,
+      "col": 19,
+      "offset": 113292
+    },
+    "extra": {
+      "message": "Evaluating non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/function.eval",
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/NoEvalsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Command Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.eval-use.eval-use",
+        "shortlink": "https://sg.run/J9AP"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.eval-use.eval-use",
+    "path": "/workspace/src/html/classes/module/Module.php",
+    "start": {
+      "line": 3086,
+      "col": 13,
+      "offset": 118507
+    },
+    "end": {
+      "line": 3098,
+      "col": 15,
+      "offset": 119006
+    },
+    "extra": {
+      "message": "Evaluating non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/function.eval",
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/NoEvalsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Command Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.eval-use.eval-use",
+        "shortlink": "https://sg.run/J9AP"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.eval-use.eval-use",
+    "path": "/workspace/src/html/classes/module/Module.php",
+    "start": {
+      "line": 3102,
+      "col": 13,
+      "offset": 119197
+    },
+    "end": {
+      "line": 3114,
+      "col": 15,
+      "offset": 119689
+    },
+    "extra": {
+      "message": "Evaluating non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/function.eval",
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/NoEvalsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Command Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.eval-use.eval-use",
+        "shortlink": "https://sg.run/J9AP"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/classes/module/Module.php",
+    "start": {
+      "line": 3139,
+      "col": 21,
+      "offset": 121163
+    },
+    "end": {
+      "line": 3139,
+      "col": 63,
+      "offset": 121205
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.eval-use.eval-use",
+    "path": "/workspace/src/html/classes/module/Module.php",
+    "start": {
+      "line": 3212,
+      "col": 17,
+      "offset": 124847
+    },
+    "end": {
+      "line": 3224,
+      "col": 19,
+      "offset": 125371
+    },
+    "extra": {
+      "message": "Evaluating non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/function.eval",
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/NoEvalsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Command Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.eval-use.eval-use",
+        "shortlink": "https://sg.run/J9AP"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/classes/webservice/WebserviceSpecificManagementImages.php",
+    "start": {
+      "line": 1059,
+      "col": 21,
+      "offset": 46207
+    },
+    "end": {
+      "line": 1059,
+      "col": 105,
+      "offset": 46291
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/config/smartyfront.config.inc.php",
+    "start": {
+      "line": 279,
+      "col": 9,
+      "offset": 9131
+    },
+    "end": {
+      "line": 279,
+      "col": 29,
+      "offset": 9151
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+    "path": "/workspace/src/html/controllers/admin/AdminProductsController.php",
+    "start": {
+      "line": 3294,
+      "col": 56,
+      "offset": 155538
+    },
+    "end": {
+      "line": 3294,
+      "col": 397,
+      "offset": 155879
+    },
+    "extra": {
+      "message": "User data flows into this manually-constructed SQL string. User data can be safely inserted into SQL strings using prepared statements or an object-relational mapper (ORM). Manually-constructed SQL strings is a possible indicator of SQL injection, which could let an attacker steal or manipulate data from the database. Instead, use prepared statements (`$mysqli->prepare(\"INSERT INTO test(id, label) VALUES (?, ?)\");`) or a safe library.",
+      "metadata": {
+        "cwe": [
+          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "references": [
+          "https://owasp.org/www-community/attacks/SQL_Injection"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "vuln"
+        ],
+        "likelihood": "HIGH",
+        "impact": "MEDIUM",
+        "confidence": "MEDIUM",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "SQL Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+        "shortlink": "https://sg.run/lZYG"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/controllers/admin/AdminTranslationsController.php",
+    "start": {
+      "line": 1010,
+      "col": 29,
+      "offset": 41959
+    },
+    "end": {
+      "line": 1010,
+      "col": 52,
+      "offset": 41982
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/controllers/admin/AdminTranslationsController.php",
+    "start": {
+      "line": 1021,
+      "col": 67,
+      "offset": 42447
+    },
+    "end": {
+      "line": 1021,
+      "col": 133,
+      "offset": 42513
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/controllers/front/GetFileController.php",
+    "start": {
+      "line": 308,
+      "col": 13,
+      "offset": 12374
+    },
+    "end": {
+      "line": 308,
+      "col": 85,
+      "offset": 12446
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/controllers/front/GetFileController.php",
+    "start": {
+      "line": 310,
+      "col": 17,
+      "offset": 12493
+    },
+    "end": {
+      "line": 310,
+      "col": 81,
+      "offset": 12557
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/controllers/front/GetFileController.php",
+    "start": {
+      "line": 313,
+      "col": 17,
+      "offset": 12618
+    },
+    "end": {
+      "line": 313,
+      "col": 78,
+      "offset": 12679
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/controllers/front/StatisticsController.php",
+    "start": {
+      "line": 57,
+      "col": 13,
+      "offset": 1866
+    },
+    "end": {
+      "line": 57,
+      "col": 65,
+      "offset": 1918
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/controllers/front/StatisticsController.php",
+    "start": {
+      "line": 85,
+      "col": 13,
+      "offset": 3131
+    },
+    "end": {
+      "line": 85,
+      "col": 95,
+      "offset": 3213
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/modules/blockreassurance/classes/ReassuranceActivity.php",
+    "start": {
+      "line": 196,
+      "col": 13,
+      "offset": 7239
+    },
+    "end": {
+      "line": 196,
+      "col": 88,
+      "offset": 7314
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/modules/blockreassurance/classes/ReassuranceActivity.php",
+    "start": {
+      "line": 198,
+      "col": 17,
+      "offset": 7361
+    },
+    "end": {
+      "line": 198,
+      "col": 84,
+      "offset": 7428
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/modules/blockreassurance/classes/ReassuranceActivity.php",
+    "start": {
+      "line": 201,
+      "col": 17,
+      "offset": 7489
+    },
+    "end": {
+      "line": 201,
+      "col": 81,
+      "offset": 7553
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/modules/ps_banner/ps_banner.php",
+    "start": {
+      "line": 149,
+      "col": 36,
+      "offset": 5908
+    },
+    "end": {
+      "line": 149,
+      "col": 100,
+      "offset": 5972
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+    "path": "/workspace/src/html/modules/ps_emailsubscription/ps_emailsubscription.php",
+    "start": {
+      "line": 586,
+      "col": 20,
+      "offset": 22895
+    },
+    "end": {
+      "line": 586,
+      "col": 162,
+      "offset": 23037
+    },
+    "extra": {
+      "message": "User data flows into this manually-constructed SQL string. User data can be safely inserted into SQL strings using prepared statements or an object-relational mapper (ORM). Manually-constructed SQL strings is a possible indicator of SQL injection, which could let an attacker steal or manipulate data from the database. Instead, use prepared statements (`$mysqli->prepare(\"INSERT INTO test(id, label) VALUES (?, ?)\");`) or a safe library.",
+      "metadata": {
+        "cwe": [
+          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "references": [
+          "https://owasp.org/www-community/attacks/SQL_Injection"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "vuln"
+        ],
+        "likelihood": "HIGH",
+        "impact": "MEDIUM",
+        "confidence": "MEDIUM",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "SQL Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+        "shortlink": "https://sg.run/lZYG"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+    "path": "/workspace/src/html/modules/ps_emailsubscription/ps_emailsubscription.php",
+    "start": {
+      "line": 588,
+      "col": 20,
+      "offset": 23125
+    },
+    "end": {
+      "line": 588,
+      "col": 169,
+      "offset": 23274
+    },
+    "extra": {
+      "message": "User data flows into this manually-constructed SQL string. User data can be safely inserted into SQL strings using prepared statements or an object-relational mapper (ORM). Manually-constructed SQL strings is a possible indicator of SQL injection, which could let an attacker steal or manipulate data from the database. Instead, use prepared statements (`$mysqli->prepare(\"INSERT INTO test(id, label) VALUES (?, ?)\");`) or a safe library.",
+      "metadata": {
+        "cwe": [
+          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+        ],
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "references": [
+          "https://owasp.org/www-community/attacks/SQL_Injection"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "vuln"
+        ],
+        "likelihood": "HIGH",
+        "impact": "MEDIUM",
+        "confidence": "MEDIUM",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "SQL Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+        "shortlink": "https://sg.run/lZYG"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/modules/ps_themecusto/controllers/admin/AdminPsThemeCustoAdvanced.php",
+    "start": {
+      "line": 394,
+      "col": 13,
+      "offset": 13259
+    },
+    "end": {
+      "line": 394,
+      "col": 89,
+      "offset": 13335
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/modules/ps_themecusto/controllers/admin/AdminPsThemeCustoAdvanced.php",
+    "start": {
+      "line": 396,
+      "col": 17,
+      "offset": 13382
+    },
+    "end": {
+      "line": 396,
+      "col": 85,
+      "offset": 13450
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.exec-use.exec-use",
+    "path": "/workspace/src/html/modules/ps_themecusto/controllers/admin/AdminPsThemeCustoAdvanced.php",
+    "start": {
+      "line": 399,
+      "col": 17,
+      "offset": 13511
+    },
+    "end": {
+      "line": 399,
+      "col": 82,
+      "offset": 13576
+    },
+    "extra": {
+      "message": "Executing non-constant commands. This can lead to command injection.",
+      "metadata": {
+        "cwe": [
+          "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/SystemExecFunctionsSniff.php"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "owasp": [
+          "A03:2021 - Injection",
+          "A05:2025 - Injection"
+        ],
+        "cwe2022-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Code Injection"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.exec-use.exec-use",
+        "shortlink": "https://sg.run/5Q1j"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/modules/psgdpr/controllers/front/ExportDataToCsv.php",
+    "start": {
+      "line": 36,
+      "col": 66,
+      "offset": 1275
+    },
+    "end": {
+      "line": 36,
+      "col": 87,
+      "offset": 1296
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/modules/psgdpr/controllers/front/ExportDataToPdf.php",
+    "start": {
+      "line": 36,
+      "col": 66,
+      "offset": 1275
+    },
+    "end": {
+      "line": 36,
+      "col": 87,
+      "offset": 1296
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/modules/psgdpr/controllers/front/FrontAjaxGdpr.php",
+    "start": {
+      "line": 46,
+      "col": 44,
+      "offset": 1709
+    },
+    "end": {
+      "line": 46,
+      "col": 69,
+      "offset": 1734
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "php.lang.security.md5-loose-equality.md5-loose-equality",
+    "path": "/workspace/src/html/modules/psgdpr/controllers/front/FrontAjaxGdpr.php",
+    "start": {
+      "line": 51,
+      "col": 41,
+      "offset": 1998
+    },
+    "end": {
+      "line": 51,
+      "col": 63,
+      "offset": 2020
+    },
+    "extra": {
+      "message": "Make sure comparisons involving md5 values are strict (use `===` not `==`) to avoid type juggling issues",
+      "metadata": {
+        "cwe": [
+          "CWE-697: Incorrect Comparison"
+        ],
+        "references": [
+          "https://www.php.net/manual/en/types.comparisons.php",
+          "https://web.archive.org/web/20210430183236/https://www.whitehatsec.com/blog/magic-hashes/"
+        ],
+        "category": "security",
+        "technology": [
+          "php"
+        ],
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "LOW",
+        "confidence": "LOW",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/php.lang.security.md5-loose-equality.md5-loose-equality",
+        "shortlink": "https://sg.run/Do4G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "generic.secrets.security.detected-bcrypt-hash.detected-bcrypt-hash",
+    "path": "/workspace/src/html/src/Core/Crypto/Hashing.php",
+    "start": {
+      "line": 122,
+      "col": 34,
+      "offset": 4177
+    },
+    "end": {
+      "line": 122,
+      "col": 94,
+      "offset": 4237
+    },
+    "extra": {
+      "message": "bcrypt hash detected",
+      "metadata": {
+        "cwe": [
+          "CWE-798: Use of Hard-coded Credentials"
+        ],
+        "category": "security",
+        "technology": [
+          "secrets",
+          "bcrypt"
+        ],
+        "confidence": "LOW",
+        "owasp": [
+          "A07:2021 - Identification and Authentication Failures",
+          "A07:2025 - Authentication Failures"
+        ],
+        "references": [
+          "https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures"
+        ],
+        "cwe2022-top25": true,
+        "cwe2021-top25": true,
+        "subcategory": [
+          "audit"
+        ],
+        "likelihood": "LOW",
+        "impact": "HIGH",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Hard-coded Secrets"
+        ],
+        "source": "https://semgrep.dev/r/generic.secrets.security.detected-bcrypt-hash.detected-bcrypt-hash",
+        "shortlink": "https://sg.run/3A8G"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  }
+]

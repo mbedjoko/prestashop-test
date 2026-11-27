@@ -1,0 +1,57 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: prestashop_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: prestashop
+      MYSQL_DATABASE: prestashop
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - prestashop_net
+
+  prestashop:
+    image: prestashop/prestashop:8.1.7-apache
+    container_name: prestashop_app
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
+    environment:
+      DB_SERVER: mysql
+      DB_NAME: prestashop
+      DB_USER: root
+      DB_PASSWD: prestashop
+      PS_INSTALL_AUTO: 1
+      PS_DEV_MODE: 0
+      ADMIN_MAIL: admin@test.local
+      ADMIN_PASSWD: PrestaTest123!
+      PS_DOMAIN: localhost:8080
+      PS_FOLDER_INSTALL: install
+      PS_FOLDER_ADMIN: admin
+      PS_COUNTRY: FR
+      PS_LANGUAGE: fr
+      PS_DEMO_MODE: 0
+    volumes:
+      - prestashop_data:/var/www/html
+    networks:
+      - prestashop_net
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: prestashop_mailpit
+    restart: unless-stopped
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    networks:
+      - prestashop_net
+
+volumes:
+  mysql_data:
+  prestashop_data:
+
+networks:
+  prestashop_net:
