@@ -49,9 +49,23 @@ services:
     networks:
       - prestashop_net
 
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: prestashop_jenkins
+    restart: unless-stopped
+    ports:
+      - "8090:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - prestashop_net
+
 volumes:
   mysql_data:
   prestashop_data:
+  jenkins_home:
 
 networks:
   prestashop_net:
