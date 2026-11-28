@@ -1,0 +1,1810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5.1 (Python 3.15.2 on win32)" generated="2026-11-28T05:17:39.568979" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\FOTSO\Documents\prestashop-robot\tests">
+<suite id="s1-s1" name="01 Login" source="C:\Users\FOTSO\Documents\prestashop-robot\tests\01_login.robot">
+<kw name="Initialiser Suite Avec Compte Client" owner="keywords" type="SETUP">
+<kw name="Ouvrir Navigateur" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:17:40.408822" level="INFO">${options} = add_argument("--window-size=1920,1080")</msg>
+<var>${options}</var>
+<arg>add_argument("--window-size=1920,1080")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-11-28T05:17:40.408295" elapsed="0.000586"/>
+</kw>
+<kw name="Convert To Boolean" owner="BuiltIn">
+<msg time="2026-11-28T05:17:40.409824" level="INFO">${headless} = False</msg>
+<var>${headless}</var>
+<arg>${HEADLESS}</arg>
+<doc>Converts the given item to Boolean `True` or `False`.</doc>
+<status status="PASS" start="2026-11-28T05:17:40.409157" elapsed="0.000739"/>
+</kw>
+<if>
+<branch type="IF" condition="${headless}">
+<kw name="Catenate" owner="BuiltIn">
+<var>${options}</var>
+<arg>SEPARATOR=;</arg>
+<arg>${options}</arg>
+<arg>add_argument("--headless=new")</arg>
+<doc>Concatenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" start="2026-11-28T05:17:40.410322" elapsed="0.000069"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:17:40.410082" elapsed="0.000420"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:17:40.410042" elapsed="0.000604"/>
+</if>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:40.411764" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:17:40.411254" elapsed="3.730579"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-11-28T05:17:44.142281" elapsed="0.005199"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-11-28T05:17:44.148206" elapsed="0.000558"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${headless}">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-11-28T05:17:44.149750" elapsed="0.800663"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:17:44.149055" elapsed="0.801536"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:17:44.148980" elapsed="0.801781"/>
+</if>
+<doc>Ouvre Chrome (visible ou headless selon False).</doc>
+<status status="PASS" start="2026-11-28T05:17:40.403637" elapsed="4.547327"/>
+</kw>
+<kw name="Creer Compte Client Unique" owner="keywords">
+<kw name="Generer Email Unique" owner="keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-11-28T05:17:44.956712" level="INFO">${horodatage} = 20261128051744956555</msg>
+<var>${horodatage}</var>
+<arg>result_format=%Y%m%d%H%M%S%f</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-11-28T05:17:44.956203" elapsed="0.000574"/>
+</kw>
+<return>
+<value>robot.${horodatage}@test.com</value>
+<status status="PASS" start="2026-11-28T05:17:44.956914" elapsed="0.000097"/>
+</return>
+<msg time="2026-11-28T05:17:44.957260" level="INFO">${email} = robot.20261128051744956555@test.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2026-11-28T05:17:44.951839" elapsed="0.005489"/>
+</kw>
+<kw name="Inscrire Client" owner="keywords">
+<kw name="Ouvrir Page Inscription" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:44.960283" level="INFO">Opening url 'http://localhost:8080/index.php?controller=registration'</msg>
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:17:44.960007" elapsed="2.125204"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_REG_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:17:47.085665" elapsed="1.454545"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:17:44.959588" elapsed="3.580831"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:48.541355" level="INFO">Typing text 'Jean' into text field 'css:#customer-form input[name='firstname']'.</msg>
+<arg>${LOC_REG_FIRSTNAME}</arg>
+<arg>${prenom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:17:48.540829" elapsed="2.537435"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:51.079653" level="INFO">Typing text 'Dupont' into text field 'css:#customer-form input[name='lastname']'.</msg>
+<arg>${LOC_REG_LASTNAME}</arg>
+<arg>${nom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:17:51.078827" elapsed="2.352257"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:53.431672" level="INFO">Typing text 'robot.20261128051744956555@test.com' into text field 'css:#customer-form input[name='email']'.</msg>
+<arg>${LOC_REG_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:17:53.431350" elapsed="2.368719"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:55.801004" level="INFO">Typing password into text field 'css:#customer-form input[name='password']'.</msg>
+<msg time="2026-11-28T05:17:57.274836" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_REG_PASSWORD}</arg>
+<arg>${mot_de_passe}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:17:55.800510" elapsed="2.396725"/>
+</kw>
+<if>
+<branch type="IF" condition="'${consentement}' == 'oui'">
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:58.198477" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='customer_privacy']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:17:58.198187" elapsed="0.715299"/>
+</kw>
+<arg>customer_privacy</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:17:58.197782" elapsed="0.715946"/>
+</kw>
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:58.915287" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='psgdpr']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:17:58.914784" elapsed="0.716979"/>
+</kw>
+<arg>psgdpr</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:17:58.914102" elapsed="0.717910"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:17:58.197430" elapsed="1.434791"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:17:58.197393" elapsed="1.434933"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:17:59.632978" level="INFO">Clicking button 'css:#customer-form button[data-link-action='save-customer']'.</msg>
+<arg>${LOC_REG_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:17:59.632552" elapsed="5.100430"/>
+</kw>
+<arg>${CLIENT_PRENOM}</arg>
+<arg>${CLIENT_NOM}</arg>
+<arg>${email}</arg>
+<arg>${CLIENT_PASSWORD}</arg>
+<status status="PASS" start="2026-11-28T05:17:44.957904" elapsed="19.775226"/>
+</kw>
+<kw name="Verifier Utilisateur Connecte" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:18:04.733751" elapsed="0.723031"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:04.733354" elapsed="0.723620"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2026-11-28T05:18:05.457083" elapsed="0.000106"/>
+</return>
+<msg time="2026-11-28T05:18:05.457448" level="INFO">${email} = robot.20261128051744956555@test.com</msg>
+<var>${email}</var>
+<doc>Cree un client avec un email unique et retourne cet email.</doc>
+<status status="PASS" start="2026-11-28T05:17:44.951492" elapsed="20.506016"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:18:05.458444" level="INFO">${CLIENT_EMAIL} = robot.20261128051744956555@test.com</msg>
+<arg>${CLIENT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-11-28T05:18:05.457946" elapsed="0.000567"/>
+</kw>
+<doc>Ouvre le navigateur et cree un compte client unique reutilise par la suite.</doc>
+<status status="PASS" start="2026-11-28T05:17:40.403104" elapsed="25.055524"/>
+</kw>
+<test id="s1-s1-t1" name="AUTH-01 Identifiants valides" line="15">
+<kw name="Preparer Test" owner="keywords" type="SETUP">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2026-11-28T05:18:05.459903" elapsed="1.172150"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:06.632477" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:18:06.632293" elapsed="1.376510"/>
+</kw>
+<doc>Isole chaque test : session vierge (cookies supprimes) puis page cible.</doc>
+<status status="PASS" start="2026-11-28T05:18:05.459515" elapsed="2.549445"/>
+</kw>
+<kw name="Tenter Connexion" owner="keywords">
+<kw name="Se Connecter" owner="keywords">
+<kw name="Ouvrir Page Connexion" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:08.011155" level="INFO">Opening url 'http://localhost:8080/index.php?controller=authentication'</msg>
+<arg>${URL_LOGIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:18:08.010956" elapsed="1.237658"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_LOGIN_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:18:09.248895" elapsed="1.436438"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:08.010522" elapsed="2.675181"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:10.686605" level="INFO">Typing text 'robot.20261128051744956555@test.com' into text field 'css:#login-form input[name='email']'.</msg>
+<arg>${LOC_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:10.686079" elapsed="2.593290"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:13.280165" level="INFO">Typing password into text field 'css:#login-form input[name='password']'.</msg>
+<msg time="2026-11-28T05:18:14.730125" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_LOGIN_PASSWORD}</arg>
+<arg>${mot_de_passe}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:13.279688" elapsed="2.322782"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:15.603363" level="INFO">Clicking button 'id=submit-login'.</msg>
+<arg>${LOC_LOGIN_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:15.602864" elapsed="4.669824"/>
+</kw>
+<arg>${email}</arg>
+<arg>${mot_de_passe}</arg>
+<status status="PASS" start="2026-11-28T05:18:08.010092" elapsed="12.262820"/>
+</kw>
+<if>
+<branch type="IF" condition="'${resultat}' == 'succes'">
+<kw name="Verifier Utilisateur Connecte" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:18:20.273849" elapsed="0.710822"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:20.273488" elapsed="0.711487"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:20.273126" elapsed="0.711962"/>
+</branch>
+<branch type="ELSE">
+<kw name="Verifier Connexion Refusee" owner="keywords">
+<status status="NOT RUN" start="2026-11-28T05:18:20.985580" elapsed="0.000083"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:18:20.985210" elapsed="0.000551"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:18:20.273090" elapsed="0.712770"/>
+</if>
+<kw name="Verifier Absence Erreur Serveur" owner="keywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete'</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-11-28T05:18:20.986856" elapsed="0.711349"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:22.422198" level="INFO">${source} = &lt;html lang="fr-FR"&gt;&lt;head&gt;
+    
+      
+  &lt;meta charset="utf-8"&gt;
+
+
+  &lt;meta http-equiv="x-ua-compatible" content="ie=edge"&gt;
+
+
+
+  &lt;title&gt;PrestaShop&lt;/title&gt;
+  
+    
+  
+  &lt;meta name="description" content=""...</msg>
+<var>${source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2026-11-28T05:18:21.698795" elapsed="0.723565"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${source}</arg>
+<arg>Fatal error</arg>
+<arg>SQLSTATE</arg>
+<arg>PrestaShopDatabaseException</arg>
+<arg>Stack trace</arg>
+<arg>Parse error</arg>
+<arg>Internal Server Error</arg>
+<doc>Fails if the `container` contains one or more of the `items`.</doc>
+<status status="PASS" start="2026-11-28T05:18:22.422977" elapsed="0.002390"/>
+</kw>
+<doc>Detecte les fuites d'erreurs PHP/SQL dans le code source de la page.</doc>
+<status status="PASS" start="2026-11-28T05:18:20.986198" elapsed="1.439497"/>
+</kw>
+<arg>${CLIENT_EMAIL}</arg>
+<arg>${CLIENT_PASSWORD}</arg>
+<arg>succes</arg>
+<doc>Mot-cle modele (Test Template) : resultat = succes | echec.</doc>
+<status status="PASS" start="2026-11-28T05:18:08.009569" elapsed="14.416380"/>
+</kw>
+<kw name="Terminer Test" owner="keywords" type="TEARDOWN">
+<if>
+<branch type="IF" condition="$TEST_STATUS == 'FAIL'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-11-28T05:18:22.428613" elapsed="0.000103"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Sauvegarder Source Page</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="NOT RUN" start="2026-11-28T05:18:22.429127" elapsed="0.000163"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:18:22.427753" elapsed="0.001668"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:18:22.427690" elapsed="0.001843"/>
+</if>
+<doc>Capture d'ecran integree a log.html en cas d'echec (preuve pour le registre des anomalies).</doc>
+<status status="PASS" start="2026-11-28T05:18:22.427040" elapsed="0.002633"/>
+</kw>
+<tag>authentification</tag>
+<tag>critique</tag>
+<tag>front-office</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-11-28T05:18:05.458736" elapsed="16.972554"/>
+</test>
+<kw name="Fermer Navigateur" owner="keywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-11-28T05:18:22.442175" elapsed="3.431038"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:22.441766" elapsed="3.431591"/>
+</kw>
+<doc>Authentification front-office.
+Technique : partitions d'equivalence (identifiants valides / invalides / vides)
+et attaques par injection (SQLi) sur les champs de connexion.
+Une ligne du tableau = un cas de test, a rapprocher de la grille du Test Analyst.</doc>
+<status status="PASS" start="2026-11-28T05:17:39.681714" elapsed="46.191703"/>
+</suite>
+<suite id="s1-s2" name="02 Session" source="C:\Users\FOTSO\Documents\prestashop-robot\tests\02_session.robot">
+<kw name="Initialiser Suite Avec Compte Client" owner="keywords" type="SETUP">
+<kw name="Ouvrir Navigateur" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:18:25.895466" level="INFO">${options} = add_argument("--window-size=1920,1080")</msg>
+<var>${options}</var>
+<arg>add_argument("--window-size=1920,1080")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-11-28T05:18:25.894498" elapsed="0.001067"/>
+</kw>
+<kw name="Convert To Boolean" owner="BuiltIn">
+<msg time="2026-11-28T05:18:25.896794" level="INFO">${headless} = False</msg>
+<var>${headless}</var>
+<arg>${HEADLESS}</arg>
+<doc>Converts the given item to Boolean `True` or `False`.</doc>
+<status status="PASS" start="2026-11-28T05:18:25.895992" elapsed="0.000873"/>
+</kw>
+<if>
+<branch type="IF" condition="${headless}">
+<kw name="Catenate" owner="BuiltIn">
+<var>${options}</var>
+<arg>SEPARATOR=;</arg>
+<arg>${options}</arg>
+<arg>add_argument("--headless=new")</arg>
+<doc>Concatenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" start="2026-11-28T05:18:25.897912" elapsed="0.000131"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:18:25.897093" elapsed="0.001249"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:18:25.897046" elapsed="0.001460"/>
+</if>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:25.900322" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:18:25.899648" elapsed="3.814416"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-11-28T05:18:29.714470" elapsed="0.702341"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-11-28T05:18:30.417165" elapsed="0.000369"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${headless}">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-11-28T05:18:30.418147" elapsed="0.745207"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:30.417751" elapsed="0.745755"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:18:30.417704" elapsed="0.745926"/>
+</if>
+<doc>Ouvre Chrome (visible ou headless selon False).</doc>
+<status status="PASS" start="2026-11-28T05:18:25.893943" elapsed="5.269805"/>
+</kw>
+<kw name="Creer Compte Client Unique" owner="keywords">
+<kw name="Generer Email Unique" owner="keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-11-28T05:18:31.166348" level="INFO">${horodatage} = 20261128051831166146</msg>
+<var>${horodatage}</var>
+<arg>result_format=%Y%m%d%H%M%S%f</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-11-28T05:18:31.165780" elapsed="0.000654"/>
+</kw>
+<return>
+<value>robot.${horodatage}@test.com</value>
+<status status="PASS" start="2026-11-28T05:18:31.166606" elapsed="0.000118"/>
+</return>
+<msg time="2026-11-28T05:18:31.167049" level="INFO">${email} = robot.20261128051831166146@test.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2026-11-28T05:18:31.165171" elapsed="0.001955"/>
+</kw>
+<kw name="Inscrire Client" owner="keywords">
+<kw name="Ouvrir Page Inscription" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:31.169167" level="INFO">Opening url 'http://localhost:8080/index.php?controller=registration'</msg>
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:18:31.168890" elapsed="2.943245"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_REG_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:18:34.112558" elapsed="1.428007"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:31.168460" elapsed="4.372374"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:35.541987" level="INFO">Typing text 'Jean' into text field 'css:#customer-form input[name='firstname']'.</msg>
+<arg>${LOC_REG_FIRSTNAME}</arg>
+<arg>${prenom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:35.541300" elapsed="2.284864"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:37.826938" level="INFO">Typing text 'Dupont' into text field 'css:#customer-form input[name='lastname']'.</msg>
+<arg>${LOC_REG_LASTNAME}</arg>
+<arg>${nom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:37.826467" elapsed="2.281895"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:40.108955" level="INFO">Typing text 'robot.20261128051831166146@test.com' into text field 'css:#customer-form input[name='email']'.</msg>
+<arg>${LOC_REG_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:40.108625" elapsed="2.411631"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:42.520828" level="INFO">Typing password into text field 'css:#customer-form input[name='password']'.</msg>
+<msg time="2026-11-28T05:18:43.958394" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_REG_PASSWORD}</arg>
+<arg>${mot_de_passe}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:42.520517" elapsed="2.370903"/>
+</kw>
+<if>
+<branch type="IF" condition="'${consentement}' == 'oui'">
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:44.893819" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='customer_privacy']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:18:44.893488" elapsed="0.719765"/>
+</kw>
+<arg>customer_privacy</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:18:44.892886" elapsed="0.720831"/>
+</kw>
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:45.614982" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='psgdpr']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:18:45.614640" elapsed="0.720239"/>
+</kw>
+<arg>psgdpr</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:18:45.614107" elapsed="0.722180"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:44.891707" elapsed="1.444733"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:18:44.891631" elapsed="1.444927"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:46.338037" level="INFO">Clicking button 'css:#customer-form button[data-link-action='save-customer']'.</msg>
+<arg>${LOC_REG_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:46.337604" elapsed="5.118395"/>
+</kw>
+<arg>${CLIENT_PRENOM}</arg>
+<arg>${CLIENT_NOM}</arg>
+<arg>${email}</arg>
+<arg>${CLIENT_PASSWORD}</arg>
+<status status="PASS" start="2026-11-28T05:18:31.167639" elapsed="20.288663"/>
+</kw>
+<kw name="Verifier Utilisateur Connecte" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:18:51.457306" elapsed="0.715922"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:51.456718" elapsed="0.716658"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2026-11-28T05:18:52.173449" elapsed="0.000064"/>
+</return>
+<msg time="2026-11-28T05:18:52.173685" level="INFO">${email} = robot.20261128051831166146@test.com</msg>
+<var>${email}</var>
+<doc>Cree un client avec un email unique et retourne cet email.</doc>
+<status status="PASS" start="2026-11-28T05:18:31.164101" elapsed="21.009623"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:18:52.174440" level="INFO">${CLIENT_EMAIL} = robot.20261128051831166146@test.com</msg>
+<arg>${CLIENT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-11-28T05:18:52.173955" elapsed="0.000585"/>
+</kw>
+<doc>Ouvre le navigateur et cree un compte client unique reutilise par la suite.</doc>
+<status status="PASS" start="2026-11-28T05:18:25.893035" elapsed="26.281616"/>
+</kw>
+<test id="s1-s2-t1" name="SESS-01 Deconnexion apres une connexion valide" line="11">
+<kw name="Preparer Test" owner="keywords" type="SETUP">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2026-11-28T05:18:52.176011" elapsed="0.771800"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:52.948521" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:18:52.948164" elapsed="1.365894"/>
+</kw>
+<doc>Isole chaque test : session vierge (cookies supprimes) puis page cible.</doc>
+<status status="PASS" start="2026-11-28T05:18:52.175546" elapsed="2.138770"/>
+</kw>
+<kw name="Se Connecter" owner="keywords">
+<kw name="Ouvrir Page Connexion" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:54.323748" level="INFO">Opening url 'http://localhost:8080/index.php?controller=authentication'</msg>
+<arg>${URL_LOGIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:18:54.323464" elapsed="1.193380"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_LOGIN_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:18:55.517571" elapsed="1.437537"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:18:54.322924" elapsed="2.633218"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:56.957119" level="INFO">Typing text 'robot.20261128051831166146@test.com' into text field 'css:#login-form input[name='email']'.</msg>
+<arg>${LOC_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:56.956593" elapsed="2.512154"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:18:59.470720" level="INFO">Typing password into text field 'css:#login-form input[name='password']'.</msg>
+<msg time="2026-11-28T05:19:00.916015" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_LOGIN_PASSWORD}</arg>
+<arg>${mot_de_passe}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:18:59.470213" elapsed="2.351461"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:01.822412" level="INFO">Clicking button 'id=submit-login'.</msg>
+<arg>${LOC_LOGIN_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:01.821926" elapsed="4.684065"/>
+</kw>
+<arg>${CLIENT_EMAIL}</arg>
+<arg>${CLIENT_PASSWORD}</arg>
+<status status="PASS" start="2026-11-28T05:18:54.322140" elapsed="12.184138"/>
+</kw>
+<kw name="Verifier Utilisateur Connecte" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:19:06.507772" elapsed="0.712803"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:06.507054" elapsed="0.713686"/>
+</kw>
+<kw name="Se Deconnecter" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:07.222552" level="INFO">Clicking element 'css:a.logout'.</msg>
+<arg>${LOC_LOGOUT_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:07.222066" elapsed="2.216275"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2026-11-28T05:19:09.439629" elapsed="0.735365"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:07.221414" elapsed="2.953781"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:10.887536" level="INFO">Current page does not contain element 'css:a.logout'.</msg>
+<arg>${LOC_LOGOUT_LINK}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:19:10.175632" elapsed="0.712130"/>
+</kw>
+<kw name="Terminer Test" owner="keywords" type="TEARDOWN">
+<if>
+<branch type="IF" condition="$TEST_STATUS == 'FAIL'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-11-28T05:19:10.890215" elapsed="0.000131"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Sauvegarder Source Page</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="NOT RUN" start="2026-11-28T05:19:10.890794" elapsed="0.000080"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:19:10.889313" elapsed="0.001650"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:19:10.889259" elapsed="0.001793"/>
+</if>
+<doc>Capture d'ecran integree a log.html en cas d'echec (preuve pour le registre des anomalies).</doc>
+<status status="PASS" start="2026-11-28T05:19:10.888799" elapsed="0.002373"/>
+</kw>
+<tag>front-office</tag>
+<tag>session</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-11-28T05:18:52.174758" elapsed="18.716902"/>
+</test>
+<kw name="Fermer Navigateur" owner="keywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-11-28T05:19:10.894164" elapsed="4.411791"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:10.893351" elapsed="4.412803"/>
+</kw>
+<doc>Gestion des sessions et controle d'acces cote client.</doc>
+<status status="PASS" start="2026-11-28T05:18:25.875280" elapsed="49.430978"/>
+</suite>
+<suite id="s1-s3" name="03 Register" source="C:\Users\FOTSO\Documents\prestashop-robot\tests\03_register.robot">
+<kw name="Initialiser Suite Avec Compte Client" owner="keywords" type="SETUP">
+<kw name="Ouvrir Navigateur" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:19:15.329344" level="INFO">${options} = add_argument("--window-size=1920,1080")</msg>
+<var>${options}</var>
+<arg>add_argument("--window-size=1920,1080")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-11-28T05:19:15.328646" elapsed="0.000785"/>
+</kw>
+<kw name="Convert To Boolean" owner="BuiltIn">
+<msg time="2026-11-28T05:19:15.330881" level="INFO">${headless} = False</msg>
+<var>${headless}</var>
+<arg>${HEADLESS}</arg>
+<doc>Converts the given item to Boolean `True` or `False`.</doc>
+<status status="PASS" start="2026-11-28T05:19:15.329814" elapsed="0.001192"/>
+</kw>
+<if>
+<branch type="IF" condition="${headless}">
+<kw name="Catenate" owner="BuiltIn">
+<var>${options}</var>
+<arg>SEPARATOR=;</arg>
+<arg>${options}</arg>
+<arg>add_argument("--headless=new")</arg>
+<doc>Concatenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" start="2026-11-28T05:19:15.332037" elapsed="0.000098"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:19:15.331540" elapsed="0.000754"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:19:15.331439" elapsed="0.000960"/>
+</if>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:15.333626" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:19:15.333172" elapsed="4.486216"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-11-28T05:19:19.819864" elapsed="0.703166"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-11-28T05:19:20.523959" elapsed="0.000532"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${headless}">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-11-28T05:19:20.525119" elapsed="1.029184"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:20.524697" elapsed="1.030355"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:19:20.524655" elapsed="1.030615"/>
+</if>
+<doc>Ouvre Chrome (visible ou headless selon False).</doc>
+<status status="PASS" start="2026-11-28T05:19:15.328146" elapsed="6.227310"/>
+</kw>
+<kw name="Creer Compte Client Unique" owner="keywords">
+<kw name="Generer Email Unique" owner="keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-11-28T05:19:21.557635" level="INFO">${horodatage} = 20261128051921557405</msg>
+<var>${horodatage}</var>
+<arg>result_format=%Y%m%d%H%M%S%f</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-11-28T05:19:21.556890" elapsed="0.000851"/>
+</kw>
+<return>
+<value>robot.${horodatage}@test.com</value>
+<status status="PASS" start="2026-11-28T05:19:21.557920" elapsed="0.000124"/>
+</return>
+<msg time="2026-11-28T05:19:21.558331" level="INFO">${email} = robot.20261128051921557405@test.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2026-11-28T05:19:21.556389" elapsed="0.002008"/>
+</kw>
+<kw name="Inscrire Client" owner="keywords">
+<kw name="Ouvrir Page Inscription" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:21.568460" level="INFO">Opening url 'http://localhost:8080/index.php?controller=registration'</msg>
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:19:21.568167" elapsed="2.935099"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_REG_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:19:24.503733" elapsed="1.447361"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:21.559770" elapsed="4.391563"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:25.952367" level="INFO">Typing text 'Jean' into text field 'css:#customer-form input[name='firstname']'.</msg>
+<arg>${LOC_REG_FIRSTNAME}</arg>
+<arg>${prenom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:25.951747" elapsed="2.379967"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:28.334296" level="INFO">Typing text 'Dupont' into text field 'css:#customer-form input[name='lastname']'.</msg>
+<arg>${LOC_REG_LASTNAME}</arg>
+<arg>${nom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:28.332964" elapsed="2.253743"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:30.587397" level="INFO">Typing text 'robot.20261128051921557405@test.com' into text field 'css:#customer-form input[name='email']'.</msg>
+<arg>${LOC_REG_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:30.587016" elapsed="2.399492"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:32.987555" level="INFO">Typing password into text field 'css:#customer-form input[name='password']'.</msg>
+<msg time="2026-11-28T05:19:34.438699" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_REG_PASSWORD}</arg>
+<arg>${mot_de_passe}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:32.986988" elapsed="2.550588"/>
+</kw>
+<if>
+<branch type="IF" condition="'${consentement}' == 'oui'">
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:35.539089" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='customer_privacy']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:19:35.538776" elapsed="0.713490"/>
+</kw>
+<arg>customer_privacy</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:19:35.538330" elapsed="0.714154"/>
+</kw>
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:36.253776" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='psgdpr']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:19:36.253271" elapsed="0.713071"/>
+</kw>
+<arg>psgdpr</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:19:36.252704" elapsed="0.715251"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:35.537889" elapsed="1.430197"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:19:35.537820" elapsed="1.430370"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:36.968953" level="INFO">Clicking button 'css:#customer-form button[data-link-action='save-customer']'.</msg>
+<arg>${LOC_REG_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:36.968455" elapsed="5.201421"/>
+</kw>
+<arg>${CLIENT_PRENOM}</arg>
+<arg>${CLIENT_NOM}</arg>
+<arg>${email}</arg>
+<arg>${CLIENT_PASSWORD}</arg>
+<status status="PASS" start="2026-11-28T05:19:21.559063" elapsed="20.611001"/>
+</kw>
+<kw name="Verifier Utilisateur Connecte" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:19:42.170639" elapsed="0.715623"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:42.170331" elapsed="0.716272"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2026-11-28T05:19:42.886782" elapsed="0.000138"/>
+</return>
+<msg time="2026-11-28T05:19:42.887326" level="INFO">${email} = robot.20261128051921557405@test.com</msg>
+<var>${email}</var>
+<doc>Cree un client avec un email unique et retourne cet email.</doc>
+<status status="PASS" start="2026-11-28T05:19:21.555902" elapsed="21.331511"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:19:42.888783" level="INFO">${CLIENT_EMAIL} = robot.20261128051921557405@test.com</msg>
+<arg>${CLIENT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-11-28T05:19:42.887905" elapsed="0.001011"/>
+</kw>
+<doc>Ouvre le navigateur et cree un compte client unique reutilise par la suite.</doc>
+<status status="PASS" start="2026-11-28T05:19:15.327341" elapsed="27.561801"/>
+</kw>
+<test id="s1-s3-t1" name="REG-01 Inscription valide" line="15">
+<kw name="Preparer Test" owner="keywords" type="SETUP">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2026-11-28T05:19:42.892288" elapsed="0.859245"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:43.759325" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:19:43.759036" elapsed="1.622006"/>
+</kw>
+<doc>Isole chaque test : session vierge (cookies supprimes) puis page cible.</doc>
+<status status="PASS" start="2026-11-28T05:19:42.891671" elapsed="2.489538"/>
+</kw>
+<kw name="Tenter Inscription" owner="keywords">
+<kw name="Resoudre Email" owner="keywords">
+<if>
+<branch type="IF" condition="'${valeur}' == 'UNIQUE'">
+<kw name="Generer Email Unique" owner="keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-11-28T05:19:45.385088" level="INFO">${horodatage} = 20261128051945384924</msg>
+<var>${horodatage}</var>
+<arg>result_format=%Y%m%d%H%M%S%f</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-11-28T05:19:45.384541" elapsed="0.000605"/>
+</kw>
+<return>
+<value>robot.${horodatage}@test.com</value>
+<status status="PASS" start="2026-11-28T05:19:45.385368" elapsed="0.000128"/>
+</return>
+<msg time="2026-11-28T05:19:45.385913" level="INFO">${valeur} = robot.20261128051945384924@test.com</msg>
+<var>${valeur}</var>
+<status status="PASS" start="2026-11-28T05:19:45.384019" elapsed="0.002112"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:45.383536" elapsed="0.002747"/>
+</branch>
+<branch type="ELSE IF" condition="'${valeur}' == 'EXISTANT'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${valeur}</var>
+<arg>${CLIENT_EMAIL}</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="NOT RUN" start="2026-11-28T05:19:45.386691" elapsed="0.000049"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:19:45.386401" elapsed="0.000407"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:19:45.383493" elapsed="0.003373"/>
+</if>
+<return>
+<value>${valeur}</value>
+<status status="PASS" start="2026-11-28T05:19:45.386952" elapsed="0.000055"/>
+</return>
+<msg time="2026-11-28T05:19:45.387185" level="INFO">${email} = robot.20261128051945384924@test.com</msg>
+<var>${email}</var>
+<arg>${email}</arg>
+<doc>UNIQUE -&gt; email jamais utilise ; EXISTANT -&gt; email du compte de la suite.</doc>
+<status status="PASS" start="2026-11-28T05:19:45.382840" elapsed="0.004384"/>
+</kw>
+<kw name="Inscrire Client" owner="keywords">
+<kw name="Ouvrir Page Inscription" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:45.388798" level="INFO">Opening url 'http://localhost:8080/index.php?controller=registration'</msg>
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:19:45.388572" elapsed="1.185591"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_REG_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:19:46.574567" elapsed="1.434036"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:45.388172" elapsed="2.620635"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:48.009814" level="INFO">Typing text 'Jean' into text field 'css:#customer-form input[name='firstname']'.</msg>
+<arg>${LOC_REG_FIRSTNAME}</arg>
+<arg>${prenom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:48.009176" elapsed="2.377549"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:50.387873" level="INFO">Typing text 'Dupont' into text field 'css:#customer-form input[name='lastname']'.</msg>
+<arg>${LOC_REG_LASTNAME}</arg>
+<arg>${nom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:50.387246" elapsed="2.414574"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:52.803388" level="INFO">Typing text 'robot.20261128051945384924@test.com' into text field 'css:#customer-form input[name='email']'.</msg>
+<arg>${LOC_REG_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:52.802224" elapsed="2.398859"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:55.202066" level="INFO">Typing password into text field 'css:#customer-form input[name='password']'.</msg>
+<msg time="2026-11-28T05:19:56.657413" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_REG_PASSWORD}</arg>
+<arg>${mot_de_passe}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:55.201486" elapsed="2.414610"/>
+</kw>
+<if>
+<branch type="IF" condition="'${consentement}' == 'oui'">
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:57.617448" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='customer_privacy']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:19:57.617126" elapsed="0.711229"/>
+</kw>
+<arg>customer_privacy</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:19:57.616573" elapsed="0.711965"/>
+</kw>
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:58.329369" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='psgdpr']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:19:58.329154" elapsed="0.709872"/>
+</kw>
+<arg>psgdpr</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:19:58.328742" elapsed="0.710532"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:19:57.616273" elapsed="1.423221"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:19:57.616237" elapsed="1.423402"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:19:59.041064" level="INFO">Clicking button 'css:#customer-form button[data-link-action='save-customer']'.</msg>
+<arg>${LOC_REG_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:19:59.039933" elapsed="4.911509"/>
+</kw>
+<arg>${prenom}</arg>
+<arg>${nom}</arg>
+<arg>${email}</arg>
+<arg>${mot_de_passe}</arg>
+<arg>${consentement}</arg>
+<status status="PASS" start="2026-11-28T05:19:45.387600" elapsed="18.564652"/>
+</kw>
+<if>
+<branch type="IF" condition="'${resultat}' == 'succes'">
+<kw name="Verifier Utilisateur Connecte" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:20:03.953890" elapsed="0.748380"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:20:03.953135" elapsed="0.749373"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:20:03.952637" elapsed="0.749968"/>
+</branch>
+<branch type="ELSE">
+<kw name="Verifier Inscription Refusee" owner="keywords">
+<status status="NOT RUN" start="2026-11-28T05:20:04.703122" elapsed="0.000079"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:20:04.702718" elapsed="0.000573"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:20:03.952578" elapsed="0.750802"/>
+</if>
+<kw name="Verifier Absence Erreur Serveur" owner="keywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete'</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-11-28T05:20:04.704331" elapsed="0.708751"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:06.142989" level="INFO">${source} = &lt;html lang="fr-FR"&gt;&lt;head&gt;
+    
+      
+  &lt;meta charset="utf-8"&gt;
+
+
+  &lt;meta http-equiv="x-ua-compatible" content="ie=edge"&gt;
+
+
+
+  &lt;title&gt;PrestaShop&lt;/title&gt;
+  
+    
+  
+  &lt;meta name="description" content=""...</msg>
+<var>${source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2026-11-28T05:20:05.413779" elapsed="0.729360"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${source}</arg>
+<arg>Fatal error</arg>
+<arg>SQLSTATE</arg>
+<arg>PrestaShopDatabaseException</arg>
+<arg>Stack trace</arg>
+<arg>Parse error</arg>
+<arg>Internal Server Error</arg>
+<doc>Fails if the `container` contains one or more of the `items`.</doc>
+<status status="PASS" start="2026-11-28T05:20:06.143601" elapsed="0.001693"/>
+</kw>
+<doc>Detecte les fuites d'erreurs PHP/SQL dans le code source de la page.</doc>
+<status status="PASS" start="2026-11-28T05:20:04.703707" elapsed="1.442183"/>
+</kw>
+<arg>${CLIENT_PRENOM}</arg>
+<arg>${CLIENT_NOM}</arg>
+<arg>UNIQUE</arg>
+<arg>${CLIENT_PASSWORD}</arg>
+<arg>oui</arg>
+<arg>succes</arg>
+<doc>Mot-cle modele : resultat = succes | echec ; email accepte UNIQUE / EXISTANT.</doc>
+<status status="PASS" start="2026-11-28T05:19:45.381999" elapsed="20.764234"/>
+</kw>
+<kw name="Terminer Test" owner="keywords" type="TEARDOWN">
+<if>
+<branch type="IF" condition="$TEST_STATUS == 'FAIL'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-11-28T05:20:06.148226" elapsed="0.000058"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Sauvegarder Source Page</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="NOT RUN" start="2026-11-28T05:20:06.148547" elapsed="0.000051"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:20:06.147739" elapsed="0.000926"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:20:06.147690" elapsed="0.001039"/>
+</if>
+<doc>Capture d'ecran integree a log.html en cas d'echec (preuve pour le registre des anomalies).</doc>
+<status status="PASS" start="2026-11-28T05:20:06.147083" elapsed="0.001734"/>
+</kw>
+<tag>critique</tag>
+<tag>front-office</tag>
+<tag>inscription</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-11-28T05:19:42.889334" elapsed="23.259759"/>
+</test>
+<kw name="Fermer Navigateur" owner="keywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-11-28T05:20:06.150704" elapsed="4.125483"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:20:06.150256" elapsed="4.126186"/>
+</kw>
+<doc>Inscription d'un client.
+Techniques : partitions d'equivalence, valeurs limites (mot de passe),
+table de decision (consentement) et injections dans les champs de saisie.
+Email : UNIQUE = genere a chaque execution ; EXISTANT = compte cree par la suite.</doc>
+<status status="PASS" start="2026-11-28T05:19:15.308969" elapsed="54.967589"/>
+</suite>
+<suite id="s1-s4" name="04 Search Forms" source="C:\Users\FOTSO\Documents\prestashop-robot\tests\04_search_forms.robot">
+<kw name="Ouvrir Navigateur" owner="keywords" type="SETUP">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:20:10.317042" level="INFO">${options} = add_argument("--window-size=1920,1080")</msg>
+<var>${options}</var>
+<arg>add_argument("--window-size=1920,1080")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-11-28T05:20:10.316290" elapsed="0.000827"/>
+</kw>
+<kw name="Convert To Boolean" owner="BuiltIn">
+<msg time="2026-11-28T05:20:10.318533" level="INFO">${headless} = False</msg>
+<var>${headless}</var>
+<arg>${HEADLESS}</arg>
+<doc>Converts the given item to Boolean `True` or `False`.</doc>
+<status status="PASS" start="2026-11-28T05:20:10.317481" elapsed="0.001125"/>
+</kw>
+<if>
+<branch type="IF" condition="${headless}">
+<kw name="Catenate" owner="BuiltIn">
+<var>${options}</var>
+<arg>SEPARATOR=;</arg>
+<arg>${options}</arg>
+<arg>add_argument("--headless=new")</arg>
+<doc>Concatenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" start="2026-11-28T05:20:10.319230" elapsed="0.000065"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:20:10.318882" elapsed="0.000523"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:20:10.318834" elapsed="0.000650"/>
+</if>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:10.320538" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:20:10.320092" elapsed="4.531014"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-11-28T05:20:14.851488" elapsed="0.702456"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-11-28T05:20:15.554288" elapsed="0.001078"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${headless}">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-11-28T05:20:15.555807" elapsed="0.753786"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:20:15.555520" elapsed="0.754299"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:20:15.555490" elapsed="0.754530"/>
+</if>
+<doc>Ouvre Chrome (visible ou headless selon False).</doc>
+<status status="PASS" start="2026-11-28T05:20:10.315614" elapsed="5.994632"/>
+</kw>
+<test id="s1-s4-t1" name="SRCH-01 Recherche d'un produit existant" line="14">
+<kw name="Preparer Test" owner="keywords" type="SETUP">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2026-11-28T05:20:16.313733" elapsed="0.800460"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:17.114780" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:20:17.114509" elapsed="3.361639"/>
+</kw>
+<doc>Isole chaque test : session vierge (cookies supprimes) puis page cible.</doc>
+<status status="PASS" start="2026-11-28T05:20:16.313154" elapsed="4.163151"/>
+</kw>
+<kw name="Rechercher" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:20.477366" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:20:20.477211" elapsed="1.612115"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_SEARCH_INPUT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:20:22.089787" elapsed="1.564805"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:23.656167" level="INFO">Typing text 'mug' into text field 'css:#search_widget input[name='s']'.</msg>
+<arg>${LOC_SEARCH_INPUT}</arg>
+<arg>${terme}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:20:23.654961" elapsed="2.325307"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:25.980972" level="INFO">Sending key(s) ('ENTER',) to css:#search_widget input[name='s'] element.</msg>
+<msg time="2026-11-28T05:20:27.682156" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2026-11-28T05:20:27.682333" level="INFO">Releasing special key ENTER.</msg>
+<arg>${LOC_SEARCH_INPUT}</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-11-28T05:20:25.980621" elapsed="3.380299"/>
+</kw>
+<arg>${TERME_RECHERCHE}</arg>
+<status status="PASS" start="2026-11-28T05:20:20.476798" elapsed="8.884367"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_PRODUCT_MINIATURE}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:20:29.361766" elapsed="0.720000"/>
+</kw>
+<kw name="Terminer Test" owner="keywords" type="TEARDOWN">
+<if>
+<branch type="IF" condition="$TEST_STATUS == 'FAIL'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-11-28T05:20:30.098624" elapsed="0.000114"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Sauvegarder Source Page</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="NOT RUN" start="2026-11-28T05:20:30.099133" elapsed="0.000082"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:20:30.097894" elapsed="0.001441"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:20:30.097842" elapsed="0.001601"/>
+</if>
+<doc>Capture d'ecran integree a log.html en cas d'echec (preuve pour le registre des anomalies).</doc>
+<status status="PASS" start="2026-11-28T05:20:30.097352" elapsed="0.002228"/>
+</kw>
+<tag>front-office</tag>
+<tag>recherche</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-11-28T05:20:16.311194" elapsed="13.801510"/>
+</test>
+<kw name="Fermer Navigateur" owner="keywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-11-28T05:20:30.150946" elapsed="3.491966"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:20:30.149662" elapsed="3.493454"/>
+</kw>
+<doc>Recherche du catalogue et formulaires publics.
+Techniques : valeurs limites (vide, tres long), caracteres speciaux,
+fuzzing manuel de payloads (SQLi, XSS) avec controle de robustesse :
+aucune erreur serveur ni alerte JavaScript ne doit apparaitre.</doc>
+<status status="PASS" start="2026-11-28T05:20:10.293099" elapsed="23.350104"/>
+</suite>
+<suite id="s1-s5" name="05 Purchase" source="C:\Users\FOTSO\Documents\prestashop-robot\tests\05_purchase.robot">
+<kw name="Initialiser Suite Avec Compte Client" owner="keywords" type="SETUP">
+<kw name="Ouvrir Navigateur" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:20:33.675090" level="INFO">${options} = add_argument("--window-size=1920,1080")</msg>
+<var>${options}</var>
+<arg>add_argument("--window-size=1920,1080")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-11-28T05:20:33.674291" elapsed="0.000875"/>
+</kw>
+<kw name="Convert To Boolean" owner="BuiltIn">
+<msg time="2026-11-28T05:20:33.676270" level="INFO">${headless} = False</msg>
+<var>${headless}</var>
+<arg>${HEADLESS}</arg>
+<doc>Converts the given item to Boolean `True` or `False`.</doc>
+<status status="PASS" start="2026-11-28T05:20:33.675487" elapsed="0.000865"/>
+</kw>
+<if>
+<branch type="IF" condition="${headless}">
+<kw name="Catenate" owner="BuiltIn">
+<var>${options}</var>
+<arg>SEPARATOR=;</arg>
+<arg>${options}</arg>
+<arg>add_argument("--headless=new")</arg>
+<doc>Concatenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" start="2026-11-28T05:20:33.676920" elapsed="0.000078"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:20:33.676570" elapsed="0.000550"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:20:33.676522" elapsed="0.000684"/>
+</if>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:33.678697" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:20:33.678010" elapsed="4.557311"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-11-28T05:20:38.235688" elapsed="0.707978"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-11-28T05:20:38.944116" elapsed="0.000428"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${headless}">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-11-28T05:20:38.945097" elapsed="0.739152"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:20:38.944714" elapsed="0.739646"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:20:38.944679" elapsed="0.739749"/>
+</if>
+<doc>Ouvre Chrome (visible ou headless selon False).</doc>
+<status status="PASS" start="2026-11-28T05:20:33.673125" elapsed="6.011380"/>
+</kw>
+<kw name="Creer Compte Client Unique" owner="keywords">
+<kw name="Generer Email Unique" owner="keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-11-28T05:20:39.685571" level="INFO">${horodatage} = 20261128052039685460</msg>
+<var>${horodatage}</var>
+<arg>result_format=%Y%m%d%H%M%S%f</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-11-28T05:20:39.685266" elapsed="0.000351"/>
+</kw>
+<return>
+<value>robot.${horodatage}@test.com</value>
+<status status="PASS" start="2026-11-28T05:20:39.685711" elapsed="0.000059"/>
+</return>
+<msg time="2026-11-28T05:20:39.685976" level="INFO">${email} = robot.20261128052039685460@test.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2026-11-28T05:20:39.684997" elapsed="0.001014"/>
+</kw>
+<kw name="Inscrire Client" owner="keywords">
+<kw name="Ouvrir Page Inscription" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:39.686999" level="INFO">Opening url 'http://localhost:8080/index.php?controller=registration'</msg>
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:20:39.686857" elapsed="2.870918"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_REG_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:20:42.558223" elapsed="1.433007"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:20:39.686661" elapsed="4.304782"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:43.992332" level="INFO">Typing text 'Jean' into text field 'css:#customer-form input[name='firstname']'.</msg>
+<arg>${LOC_REG_FIRSTNAME}</arg>
+<arg>${prenom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:20:43.991797" elapsed="2.714189"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:46.706555" level="INFO">Typing text 'Dupont' into text field 'css:#customer-form input[name='lastname']'.</msg>
+<arg>${LOC_REG_LASTNAME}</arg>
+<arg>${nom}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:20:46.706249" elapsed="2.361633"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:49.068561" level="INFO">Typing text 'robot.20261128052039685460@test.com' into text field 'css:#customer-form input[name='email']'.</msg>
+<arg>${LOC_REG_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:20:49.068225" elapsed="2.391687"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:51.460547" level="INFO">Typing password into text field 'css:#customer-form input[name='password']'.</msg>
+<msg time="2026-11-28T05:20:52.909714" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_REG_PASSWORD}</arg>
+<arg>${mot_de_passe}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:20:51.460210" elapsed="2.420452"/>
+</kw>
+<if>
+<branch type="IF" condition="'${consentement}' == 'oui'">
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:53.882706" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='customer_privacy']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:20:53.882296" elapsed="0.726446"/>
+</kw>
+<arg>customer_privacy</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:20:53.881608" elapsed="0.727280"/>
+</kw>
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:54.609615" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='psgdpr']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:20:54.609415" elapsed="0.717706"/>
+</kw>
+<arg>psgdpr</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:20:54.609099" elapsed="0.719191"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:20:53.881108" elapsed="1.447338"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:20:53.881038" elapsed="1.447564"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:20:55.329256" level="INFO">Clicking button 'css:#customer-form button[data-link-action='save-customer']'.</msg>
+<arg>${LOC_REG_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:20:55.328868" elapsed="5.579500"/>
+</kw>
+<arg>${CLIENT_PRENOM}</arg>
+<arg>${CLIENT_NOM}</arg>
+<arg>${email}</arg>
+<arg>${CLIENT_PASSWORD}</arg>
+<status status="PASS" start="2026-11-28T05:20:39.686272" elapsed="21.222311"/>
+</kw>
+<kw name="Verifier Utilisateur Connecte" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:21:00.909326" elapsed="0.727003"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:21:00.908957" elapsed="0.727524"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2026-11-28T05:21:01.636554" elapsed="0.000062"/>
+</return>
+<msg time="2026-11-28T05:21:01.636785" level="INFO">${email} = robot.20261128052039685460@test.com</msg>
+<var>${email}</var>
+<doc>Cree un client avec un email unique et retourne cet email.</doc>
+<status status="PASS" start="2026-11-28T05:20:39.684748" elapsed="21.952077"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-11-28T05:21:01.637468" level="INFO">${CLIENT_EMAIL} = robot.20261128052039685460@test.com</msg>
+<arg>${CLIENT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-11-28T05:21:01.637055" elapsed="0.000507"/>
+</kw>
+<doc>Ouvre le navigateur et cree un compte client unique reutilise par la suite.</doc>
+<status status="PASS" start="2026-11-28T05:20:33.672234" elapsed="27.965423"/>
+</kw>
+<test id="s1-s5-t1" name="PUR-01 Parcours d'achat complet avec paiement fictif" line="13">
+<kw name="Preparer Test" owner="keywords" type="SETUP">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2026-11-28T05:21:01.638855" elapsed="0.743889"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:02.383490" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:21:02.383129" elapsed="1.442557"/>
+</kw>
+<doc>Isole chaque test : session vierge (cookies supprimes) puis page cible.</doc>
+<status status="PASS" start="2026-11-28T05:21:01.638510" elapsed="2.187413"/>
+</kw>
+<kw name="Se Connecter" owner="keywords">
+<kw name="Ouvrir Page Connexion" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:03.840019" level="INFO">Opening url 'http://localhost:8080/index.php?controller=authentication'</msg>
+<arg>${URL_LOGIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:21:03.839794" elapsed="1.576462"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_LOGIN_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:21:05.416621" elapsed="1.430175"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:21:03.839308" elapsed="3.007750"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:06.848079" level="INFO">Typing text 'robot.20261128052039685460@test.com' into text field 'css:#login-form input[name='email']'.</msg>
+<arg>${LOC_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:06.847461" elapsed="2.593205"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:09.441801" level="INFO">Typing password into text field 'css:#login-form input[name='password']'.</msg>
+<msg time="2026-11-28T05:21:10.906290" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_LOGIN_PASSWORD}</arg>
+<arg>${mot_de_passe}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:09.441257" elapsed="2.391681"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:11.833425" level="INFO">Clicking button 'id=submit-login'.</msg>
+<arg>${LOC_LOGIN_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:11.833161" elapsed="5.043412"/>
+</kw>
+<arg>${CLIENT_EMAIL}</arg>
+<arg>${CLIENT_PASSWORD}</arg>
+<status status="PASS" start="2026-11-28T05:21:03.838442" elapsed="13.038376"/>
+</kw>
+<kw name="Verifier Utilisateur Connecte" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_LOGOUT_LINK}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:21:16.878100" elapsed="0.710752"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:21:16.877370" elapsed="0.711675"/>
+</kw>
+<kw name="Ouvrir Premier Produit" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:17.590705" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:21:17.590375" elapsed="1.333846"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_PRODUCT_THUMB}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:21:18.924662" elapsed="1.473959"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:20.399790" level="INFO">Clicking element 'css:article.product-miniature a.product-thumbnail'.</msg>
+<arg>${LOC_PRODUCT_THUMB}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:20.399127" elapsed="4.606589"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_ADD_TO_CART}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:21:25.006106" elapsed="1.472028"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:21:17.589738" elapsed="8.888562"/>
+</kw>
+<kw name="Ajouter Produit Au Panier" owner="keywords">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${LOC_ADD_TO_CART}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-11-28T05:21:26.479398" elapsed="2.138712"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:28.618622" level="INFO">Clicking button 'css:button.add-to-cart'.</msg>
+<arg>${LOC_ADD_TO_CART}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:28.618342" elapsed="3.739363"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_CART_MODAL}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:21:32.358086" elapsed="1.428824"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:21:26.478765" elapsed="7.308393"/>
+</kw>
+<kw name="Finaliser Commande" owner="keywords">
+<kw name="Commander Depuis Le Panier" owner="keywords">
+<kw name="Ouvrir Page Panier" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:33.791474" level="INFO">Opening url 'http://localhost:8080/index.php?controller=cart&amp;action=show'</msg>
+<arg>${URL_CART}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-28T05:21:33.791301" elapsed="3.547674"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:21:33.790756" elapsed="3.548384"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_CART_CHECKOUT_BTN}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:21:37.339352" elapsed="1.429543"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:38.769774" level="INFO">Clicking element 'css:.cart-detailed-actions a.btn-primary'.</msg>
+<arg>${LOC_CART_CHECKOUT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:38.769325" elapsed="4.509927"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:21:33.790018" elapsed="9.489448"/>
+</kw>
+<kw name="Renseigner Adresse Si Necessaire" owner="keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_ADDR_ADDRESS1}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:21:43.281071" elapsed="1.425612"/>
+</kw>
+<msg time="2026-11-28T05:21:44.706972" level="INFO">${formulaire} = True</msg>
+<var>${formulaire}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${LOC_ADDR_ADDRESS1}</arg>
+<arg>5s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-11-28T05:21:43.280378" elapsed="1.426661"/>
+</kw>
+<if>
+<branch type="IF" condition="${formulaire}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:44.708211" level="INFO">Typing text '12 rue de la Paix' into text field 'css:input[name='address1']'.</msg>
+<arg>${LOC_ADDR_ADDRESS1}</arg>
+<arg>${ADRESSE_TEST}[ligne1]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:44.707694" elapsed="2.407867"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:47.117375" level="INFO">Typing text '75002' into text field 'css:input[name='postcode']'.</msg>
+<arg>${LOC_ADDR_POSTCODE}</arg>
+<arg>${ADRESSE_TEST}[code_postal]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:47.116776" elapsed="2.239751"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:49.357634" level="INFO">Typing text 'Paris' into text field 'css:input[name='city']'.</msg>
+<arg>${LOC_ADDR_CITY}</arg>
+<arg>${ADRESSE_TEST}[ville]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:49.357033" elapsed="2.272586"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:21:44.707318" elapsed="6.922413"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:21:44.707270" elapsed="6.922526"/>
+</if>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_CONFIRM_ADDRESSES}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:21:51.629957" elapsed="1.424304"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:21:53.056675" level="INFO">Clicking button 'css:button[name='confirm-addresses']'.</msg>
+<arg>${LOC_CONFIRM_ADDRESSES}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:21:53.056304" elapsed="33.628792"/>
+</kw>
+<doc>Remplit le formulaire d'adresse s'il est affiche (premiere commande du compte).</doc>
+<status status="PASS" start="2026-11-28T05:21:43.279841" elapsed="43.405544"/>
+</kw>
+<kw name="Choisir Livraison" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_CONFIRM_DELIVERY}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:22:26.686512" elapsed="1.427661"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:22:28.114836" level="INFO">Clicking button 'css:button[name='confirmDeliveryOption']'.</msg>
+<arg>${LOC_CONFIRM_DELIVERY}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:22:28.114410" elapsed="6.760726"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:22:26.685808" elapsed="8.189768"/>
+</kw>
+<kw name="Payer Et Confirmer" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_PAYMENT_OPTION}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:22:34.877548" elapsed="0.718866"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:22:35.597404" level="INFO">Executing JavaScript:
+document.getElementById('payment-option-1').click();
+Without any arguments.</msg>
+<arg>document.getElementById('payment-option-1').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:22:35.597083" elapsed="0.719248"/>
+</kw>
+<kw name="Cocher Case" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:22:36.318243" level="INFO">Executing JavaScript:
+var e = document.querySelector("input[name='conditions_to_approve[terms-and-conditions]']"); if (e &amp;&amp; !e.checked) { e.click(); }
+Without any arguments.</msg>
+<arg>var e = document.querySelector("input[name='${nom_champ}']"); if (e &amp;&amp; !e.checked) { e.click(); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-28T05:22:36.317661" elapsed="0.719765"/>
+</kw>
+<arg>conditions_to_approve[terms-and-conditions]</arg>
+<doc>Clic JavaScript : les cases du theme classic sont stylisees (input masque).</doc>
+<status status="PASS" start="2026-11-28T05:22:36.316789" elapsed="0.720839"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_PLACE_ORDER}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-28T05:22:37.037911" elapsed="1.443798"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${LOC_PLACE_ORDER}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-11-28T05:22:38.482390" elapsed="2.147174"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-28T05:22:40.640514" level="INFO">Clicking button 'css:#payment-confirmation button[type='submit']'.</msg>
+<arg>${LOC_PLACE_ORDER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-28T05:22:40.638683" elapsed="3.685339"/>
+</kw>
+<doc>Paiement fictif (module de test par defaut), CGV acceptees, commande validee.</doc>
+<status status="PASS" start="2026-11-28T05:22:34.876824" elapsed="9.447449"/>
+</kw>
+<kw name="Verifier Commande Confirmee" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_ORDER_CONFIRMATION}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-28T05:22:44.325272" elapsed="1.680828"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:22:44.324636" elapsed="1.681815"/>
+</kw>
+<doc>Du panier a la page de confirmation (parcours d'achat de bout en bout).</doc>
+<status status="PASS" start="2026-11-28T05:21:33.789312" elapsed="72.217318"/>
+</kw>
+<kw name="Terminer Test" owner="keywords" type="TEARDOWN">
+<if>
+<branch type="IF" condition="$TEST_STATUS == 'FAIL'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-11-28T05:22:46.008170" elapsed="0.000056"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Sauvegarder Source Page</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="NOT RUN" start="2026-11-28T05:22:46.008421" elapsed="0.000045"/>
+</kw>
+<status status="NOT RUN" start="2026-11-28T05:22:46.007734" elapsed="0.000797"/>
+</branch>
+<status status="PASS" start="2026-11-28T05:22:46.007701" elapsed="0.000889"/>
+</if>
+<doc>Capture d'ecran integree a log.html en cas d'echec (preuve pour le registre des anomalies).</doc>
+<status status="PASS" start="2026-11-28T05:22:46.007369" elapsed="0.001299"/>
+</kw>
+<doc>Connexion -&gt; produit -&gt; panier -&gt; adresse -&gt; livraison -&gt; paiement -&gt; confirmation.</doc>
+<tag>achat</tag>
+<tag>cas-d-utilisation</tag>
+<tag>critique</tag>
+<tag>front-office</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-11-28T05:21:01.637750" elapsed="104.371199"/>
+</test>
+<kw name="Fermer Navigateur" owner="keywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-11-28T05:22:46.010359" elapsed="4.223662"/>
+</kw>
+<status status="PASS" start="2026-11-28T05:22:46.010068" elapsed="4.224153"/>
+</kw>
+<doc>Parcours d'achat : recherche, panier, commande et paiement fictif.
+Techniques : cas d'utilisation (parcours complet), valeurs limites (quantite),
+transitions d'etat du panier (plein -&gt; vide).</doc>
+<status status="PASS" start="2026-11-28T05:20:33.645403" elapsed="136.588902"/>
+</suite>
+<status status="PASS" start="2026-11-28T05:17:39.574976" elapsed="310.662353"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">achat</stat>
+<stat pass="1" fail="0" skip="0">authentification</stat>
+<stat pass="1" fail="0" skip="0">cas-d-utilisation</stat>
+<stat pass="3" fail="0" skip="0">critique</stat>
+<stat pass="5" fail="0" skip="0">front-office</stat>
+<stat pass="1" fail="0" skip="0">inscription</stat>
+<stat pass="1" fail="0" skip="0">recherche</stat>
+<stat pass="1" fail="0" skip="0">session</stat>
+<stat pass="5" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="5" fail="0" skip="0">Tests</stat>
+<stat name="01 Login" id="s1-s1" pass="1" fail="0" skip="0">Tests.01 Login</stat>
+<stat name="02 Session" id="s1-s2" pass="1" fail="0" skip="0">Tests.02 Session</stat>
+<stat name="03 Register" id="s1-s3" pass="1" fail="0" skip="0">Tests.03 Register</stat>
+<stat name="04 Search Forms" id="s1-s4" pass="1" fail="0" skip="0">Tests.04 Search Forms</stat>
+<stat name="05 Purchase" id="s1-s5" pass="1" fail="0" skip="0">Tests.05 Purchase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
